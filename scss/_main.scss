@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-bg: linear-gradient(to right, #2980B9, #6DD5FA);
+  --dark-bg: linear-gradient(to right, #000000, #434343);
+  --light-scroll: #5993E9;
+  --dark-scroll: #000;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Patrick Hand', cursive;
+  color: #ffffff;
+  cursor: default;
+  overflow-x: hidden;
+
+  body {
+    max-width: 768px;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    .wrapper {
+      position: relative;
+      // max-width: 375px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      background-image: var(--light-bg);
+      color: #fff;
+      height: 100vh;
+
+      .search-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        transform: translateY(-100%);
+        transition: transform .4s;
+        overflow: hidden;
+        z-index: 1;
+
+        .search-label {
+          display: none;
+        }
+
+        .search-input {
+          font-family: 'Patrick Hand', cursive;
+          width: 100%;
+          height: 55px;
+          padding: 0 2rem;
+          color: rgba(0, 0, 0, .5);
+          font-size: 1.8rem;
+        }
+      }
+
+      .search-bar.open {
+        transform: translateY(0);
+      }
+
+      .today {
+        display: flex;
+        justify-content: space-between;
+
+        .date {
+          display: flex;
+          justify-content: space-between;
+          width: 50px;
+          height: 40px;
+
+          .day-wrapper {
+            flex-basis: 100%;
+
+            .day {
+              font-size: 3rem;
+            }
+          }
+
+          .month-year-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.1rem;
+
+            .month {
+              text-transform: uppercase;
+            }
+
+            .year {}
+          }
+        }
+
+        .week-day {
+          font-size: 2rem;
+          text-transform: uppercase;
+        }
+      }
+
+      .to-do-list {
+        list-style: none;
+        height: 70vh;
+        overflow-y: scroll;
+        padding: 1rem;
+
+        .list-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: .6rem 1rem;
+          margin-bottom: 1rem;
+          border-radius: 10px;
+          background-color: #fff;
+          border: 1px solid #000;
+
+          .item-header {
+
+            h2 {
+              font-size: 1.5rem;
+              color: #000;
+            }
+
+            p {
+              font-size: 1.3rem;
+              font-style: italic;
+              color: rgba(0, 0, 0, .5);
+            }
+          }
+
+          .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            i {
+              font-size: 2rem;
+              color: #000;
+            }
+          }
+        }
+      }
+
+      .to-do-list::-webkit-scrollbar {
+        width: 5px;
+        background-color: #fff;
+      }
+
+      .to-do-list::-webkit-scrollbar-track {
+        background-color: #fff;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.3);
+    }
+
+    .to-do-list::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: #000;
+    }
+
+    .to-do-list.night::-webkit-scrollbar-track {
+      background-color: #000;
+  }
+
+
+    .to-do-list.night::-webkit-scrollbar-thumb {
+      background-color:#fff;
+  }
+
+      .amount-tasks {
+        position: absolute;
+        left: 10px;
+        bottom: 100px;
+        transform: rotate(-90deg);
+        transform-origin: 0% 50%;
+        font-size: 1.5rem;
+        font-style: bold;
+      }
+
+      .add-bar {
+        position: absolute;
+        left: 50%;
+        bottom: 35px;
+        transform: translateX(-50%);
+        width: 80%;
+
+        .add-label {
+          display: none;
+        }
+
+        .add-input {
+          width: 100%;
+          height: 50px;
+          padding: 0 2rem;
+          font-family: 'Patrick Hand', cursive;
+          background: transparent;
+          color: #fff;
+          border-radius: 30px;
+          border: 3px solid #fff;
+          font-size: 1.5rem;
+
+
+          &::placeholder {
+            font-family: 'Patrick Hand', cursive;
+            color: rgba(255, 255, 255, .5);
+          }
+        }
+
+        .add-btn {
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          i {
+            font-size: 2rem;
+            color: #fff;
+          }
+        }
+      }
+
+      .search-btn {
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        transform: translateX(-50%);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #000;
+        cursor: pointer;
+
+        i {
+          font-size: 1.7rem;
+          color: #000;
+        }
+      }
+    }
+
+    .mode-btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      i {
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      &.night i {
+        background-color: #fff;
+      }
+    }
+  }
+}
