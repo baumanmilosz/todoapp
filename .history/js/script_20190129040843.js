@@ -38,10 +38,9 @@ const addTask = (e) => {
     let hours = date.getHours();
     let minutes = date.getMinutes();
 
-    if (date.getHours() < 10) {
+    if (date.getHours() < 17) {
       hours = `0${date.getHours()}`;
-    }
-    if (date.getMinutes() < 10) {
+    } else if (date.getMinutes() < 10) {
       minutes = `0${date.getMinutes()}`;
     }
 
