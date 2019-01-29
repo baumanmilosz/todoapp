@@ -35,14 +35,14 @@ const addTask = (e) => {
     if (!inputAdd.value) return alert('Wprowadź wartość');
 
     const date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
 
-    if (date.getHours() < 10) {
-      hours = `0${date.getHours()}`;
-    } else if (date.getMinutes() < 10) {
-      minutes = `0${date.getMinutes()}`;
-    }
+    // if (date.getHours() < 10) {
+    //   hours = `0${date.getHours()}`;
+    // } else if (date.getMinutes() < 10) {
+    //   minutes = `0${date.getMinutes()}`;
+    // }
 
     const toDoItem = document.createElement('li');
     toDoItem.classList.add('list-item');

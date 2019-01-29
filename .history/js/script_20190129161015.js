@@ -35,8 +35,8 @@ const addTask = (e) => {
     if (!inputAdd.value) return alert('Wprowadź wartość');
 
     const date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
 
     if (date.getHours() < 10) {
       hours = `0${date.getHours()}`;
