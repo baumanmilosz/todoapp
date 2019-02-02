@@ -8,4 +8,5 @@ if (screen.lockOrientationUniversal("portrait-primary")) {
 } else {
   // Orientation lock failed
   lockOrientation();
+
 }
