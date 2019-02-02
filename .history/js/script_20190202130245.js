@@ -10,8 +10,6 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 
 
-
-
 // DATE
 const today = new Date();
 if (today.getDate() < 10) {

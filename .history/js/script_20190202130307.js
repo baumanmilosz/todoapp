@@ -9,7 +9,12 @@ const modeBtn = document.querySelector('.mode-btn');
 const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 
+function lock(orientation) {
+  fullScreen();
+  screen.orientation.lock(orientation);
+}
 
+lock('landscape-primary');
 
 
 // DATE
