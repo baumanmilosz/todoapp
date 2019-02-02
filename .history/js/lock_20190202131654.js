@@ -7,5 +7,5 @@ if (screen.lockOrientationUniversal(["landscape-primary", "landscape-secondary"]
   console.log('a');
 } else {
   // Orientation lock failed
-  console.log('b');
+  console.log('a')
 }

@@ -4,8 +4,7 @@ screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrient
 
 if (screen.lockOrientationUniversal(["landscape-primary", "landscape-secondary"])) {
   // Orientation was locked
-  console.log('a');
+  console.log('as')
 } else {
   // Orientation lock failed
-  console.log('b');
 }
