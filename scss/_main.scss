@@ -205,6 +205,10 @@ html {
           }
         }
 
+        .add-input.empty::placeholder {
+          color: rgba(255, 0, 0, .8);;
+        }
+
         .add-btn {
           position: absolute;
           top: 50%;

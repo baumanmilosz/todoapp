@@ -4,7 +4,7 @@ const CACHE_NAME = 'todoapp-1.0';
 let filesToCache = [
   '/',
   '/css/style.css',
-  '/img/favicon.jpg',
+  '/img',
   '/js/script.js'
 ];
 

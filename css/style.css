@@ -247,6 +247,22 @@ html body .wrapper .add-bar .add-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
+html body .wrapper .add-bar .add-input.empty::-webkit-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty:-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty::-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty::placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
 html body .wrapper .add-bar .add-btn {
   position: absolute;
   top: 50%;
@@ -299,4 +315,3 @@ html body .mode-btn i {
 html body .mode-btn.night i {
   background-color: #fff;
 }
-/*# sourceMappingURL=style.css.map */

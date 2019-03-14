@@ -10,8 +10,6 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 
 
-
-
 // DATE
 const today = new Date();
 if (today.getDate() < 10) {
@@ -35,7 +33,13 @@ counter.textContent = amountTask;
 const addTask = (e) => {
   if (e.keyCode === 13 || e.type === 'click') {
     const inputAdd = document.querySelector('.add-input');
-    if (!inputAdd.value) return alert('Wprowadź wartość');
+    if (!inputAdd.value) {
+      inputAdd.setAttribute('placeholder', 'Input value!');
+      inputAdd.classList.add('empty');
+      return;
+    }
+    inputAdd.setAttribute('placeholder', 'Add new task...');
+    inputAdd.className = 'add-input';
 
     const date = new Date();
     let hours = date.getHours();
