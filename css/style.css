@@ -225,6 +225,7 @@ html body .wrapper .add-bar .add-input {
   border-radius: 30px;
   border: 3px solid #fff;
   font-size: 1.5rem;
+  outline: none;
 }
 
 html body .wrapper .add-bar .add-input::-webkit-input-placeholder {
