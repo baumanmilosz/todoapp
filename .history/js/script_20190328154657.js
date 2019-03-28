@@ -40,7 +40,6 @@ const updateList = function () {
       <i class="far fa-trash-alt"></i>
     </button></li>`
   }).join('');
-  amountTask = items.length;
   counter.textContent = amountTask;
 }
 updateList();

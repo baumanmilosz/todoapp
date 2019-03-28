@@ -10,7 +10,7 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
-let amountTask = null;
+let amountTask = 2;
 
 // DATE
 const today = new Date();
@@ -40,8 +40,7 @@ const updateList = function () {
       <i class="far fa-trash-alt"></i>
     </button></li>`
   }).join('');
-  amountTask = items.length;
-  counter.textContent = amountTask;
+  amountTask = 1;
 }
 updateList();
 
@@ -76,7 +75,7 @@ const addTask = (e) => {
     items.push(item);
 
     updateList();
-    formAdd.reset();
+    // formAdd.reset();
 
     amountTask = items.length;
     counter.textContent = amountTask;

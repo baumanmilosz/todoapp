@@ -10,7 +10,7 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
-let amountTask = null;
+let amountTask = items.length
 
 // DATE
 const today = new Date();
@@ -30,6 +30,7 @@ document.querySelector('.week-day').textContent = weekDays[today.getDay()];
 
 // UPDATE LIST
 const updateList = function () {
+  amountTask = items.length;
   toDoList.innerHTML = items.map((item, key) => {
     return `<li class="list-item" data-key=${key}>
       <div class="item-header">
@@ -40,8 +41,7 @@ const updateList = function () {
       <i class="far fa-trash-alt"></i>
     </button></li>`
   }).join('');
-  amountTask = items.length;
-  counter.textContent = amountTask;
+
 }
 updateList();
 

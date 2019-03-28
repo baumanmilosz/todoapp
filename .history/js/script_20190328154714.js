@@ -10,7 +10,7 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
-let amountTask = null;
+const amountTask = null;
 
 // DATE
 const today = new Date();

@@ -41,7 +41,6 @@ const updateList = function () {
     </button></li>`
   }).join('');
   amountTask = items.length;
-  counter.textContent = amountTask;
 }
 updateList();
 

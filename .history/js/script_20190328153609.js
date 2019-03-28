@@ -41,7 +41,7 @@ const updateList = function () {
     </button></li>`
   }).join('');
   amountTask = items.length;
-  counter.textContent = amountTask;
+  console.log(amountTask);
 }
 updateList();
 
@@ -78,7 +78,7 @@ const addTask = (e) => {
     updateList();
     formAdd.reset();
 
-    amountTask = items.length;
+    amountTask = listItems.length;
     counter.textContent = amountTask;
 
     localStorage.setItem('items', JSON.stringify(items));
