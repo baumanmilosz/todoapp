@@ -42,7 +42,12 @@ const updateList = function () {
   }).join('');
   amountTask = items.length;
 }
+
 updateList();
+
+//  COUNTER
+
+counter.textContent = amountTask;
 
 // ADD TASK
 const addTask = (e) => {
@@ -100,7 +105,7 @@ const removeTask = (e) => {
       const removeIndex = e.target.parentElement.parentElement.dataset.key;
       e.target.parentElement.parentElement.remove();
       items.splice(removeIndex, 1);
-      amountTask--;
+      amountTask = listItems.length;
       counter.textContent = amountTask;
       localStorage.setItem('items', JSON.stringify(items));
     }

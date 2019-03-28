@@ -42,7 +42,12 @@ const updateList = function () {
   }).join('');
   amountTask = items.length;
 }
+
 updateList();
+
+//  COUNTER
+
+// counter.textContent = amountTask;
 
 // ADD TASK
 const addTask = (e) => {

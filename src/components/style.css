@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --light-bg: linear-gradient(to right, #2980B9, #6DD5FA);
+  --dark-bg: linear-gradient(to right, #000000, #434343);
+  --light-scroll: #5993E9;
+  --dark-scroll: #000;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Patrick Hand', cursive;
+  color: #ffffff;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+html body {
+  max-width: 768px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+html body .wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-image: var(--light-bg);
+  color: #fff;
+  height: 100vh;
+}
+
+html body .wrapper .search-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+html body .wrapper .search-bar .search-label {
+  display: none;
+}
+
+html body .wrapper .search-bar .search-input {
+  font-family: 'Patrick Hand', cursive;
+  width: 100%;
+  height: 55px;
+  padding: 0 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.8rem;
+}
+
+html body .wrapper .search-bar.open {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+html body .wrapper .today {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+html body .wrapper .today .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50px;
+  height: 40px;
+}
+
+html body .wrapper .today .date .day-wrapper {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+html body .wrapper .today .date .day-wrapper .day {
+  font-size: 3rem;
+}
+
+html body .wrapper .today .date .month-year-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.1rem;
+}
+
+html body .wrapper .today .date .month-year-wrapper .month {
+  text-transform: uppercase;
+}
+
+html body .wrapper .today .week-day {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+html body .wrapper .to-do-list {
+  list-style: none;
+  height: 70vh;
+  overflow-y: scroll;
+  padding: 1rem;
+}
+
+html body .wrapper .to-do-list .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .6rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+html body .wrapper .to-do-list .list-item .item-header h2 {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+html body .wrapper .to-do-list .list-item .item-header p {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+html body .wrapper .to-do-list .list-item .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+html body .wrapper .to-do-list .list-item .delete-btn i {
+  font-size: 2rem;
+  color: #000;
+}
+
+html body .wrapper .to-do-list::-webkit-scrollbar {
+  width: 5px;
+  background-color: #fff;
+}
+
+html body .wrapper .to-do-list::-webkit-scrollbar-track {
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+html body .wrapper .to-do-list::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #000;
+}
+
+html body .wrapper .to-do-list.night::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+html body .wrapper .to-do-list.night::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+html body .wrapper .amount-tasks {
+  position: absolute;
+  left: 10px;
+  bottom: 100px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+  font-size: 1.5rem;
+  font-style: bold;
+}
+
+html body .wrapper .add-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 80%;
+}
+
+html body .wrapper .add-bar .add-label {
+  display: none;
+}
+
+html body .wrapper .add-bar .add-input {
+  width: 100%;
+  height: 50px;
+  padding: 0 2rem;
+  font-family: 'Patrick Hand', cursive;
+  background: transparent;
+  color: #fff;
+  border-radius: 30px;
+  border: 3px solid #fff;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+html body .wrapper .add-bar .add-input::-webkit-input-placeholder {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html body .wrapper .add-bar .add-input:-ms-input-placeholder {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html body .wrapper .add-bar .add-input::-ms-input-placeholder {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html body .wrapper .add-bar .add-input::placeholder {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html body .wrapper .add-bar .add-input.empty::-webkit-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty:-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty::-ms-input-placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-input.empty::placeholder {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+html body .wrapper .add-bar .add-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+html body .wrapper .add-bar .add-btn i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+html body .wrapper .search-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+html body .wrapper .search-btn i {
+  font-size: 1.7rem;
+  color: #000;
+}
+
+html body .mode-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+html body .mode-btn i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+html body .mode-btn.night i {
+  background-color: #fff;
+}

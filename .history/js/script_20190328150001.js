@@ -42,7 +42,12 @@ const updateList = function () {
   }).join('');
   amountTask = items.length;
 }
+
 updateList();
+
+//  COUNTER
+
+counter.textContent = amountTask;
 
 // ADD TASK
 const addTask = (e) => {
@@ -88,21 +93,20 @@ const addTask = (e) => {
 const removeTask = (e) => {
   if (e.keyCode === 46 || e.target.nodeName === "I") {
     localStorage.removeItem('items');
+    localStorage.setItem('items', JSON.stringify(items));
     if (e.keyCode === 46) {
       if (toDoList.childElementCount > 0) {
         items.pop();
         amountTask--;
         counter.textContent = amountTask;
-        localStorage.setItem('items', JSON.stringify(items));
       }
 
     } else if (e.target.nodeName === "I") {
       const removeIndex = e.target.parentElement.parentElement.dataset.key;
       e.target.parentElement.parentElement.remove();
       items.splice(removeIndex, 1);
-      amountTask--;
+      amountTask = listItems.length;
       counter.textContent = amountTask;
-      localStorage.setItem('items', JSON.stringify(items));
     }
     updateList();
   }

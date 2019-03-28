@@ -31,18 +31,24 @@ document.querySelector('.week-day').textContent = weekDays[today.getDay()];
 // UPDATE LIST
 const updateList = function () {
   toDoList.innerHTML = items.map((item, key) => {
-    return `<li class="list-item" data-key=${key}>
+    (
+      `<li class="list-item" data-key=${key}>
       <div class="item-header">
       <h2 class="title">${item.value}</h2>
       <p class="add-date">${item.date}</p>
     </div>
     <button class="delete-btn">
       <i class="far fa-trash-alt"></i>
-    </button></li>`
+    </button></li>`)
   }).join('');
   amountTask = items.length;
 }
+
 updateList();
+
+//  COUNTER
+
+counter.textContent = amountTask;
 
 // ADD TASK
 const addTask = (e) => {
@@ -75,12 +81,13 @@ const addTask = (e) => {
     items.push(item);
 
     updateList();
+
+    localStorage.setItem('items', JSON.stringify(items));
+
     formAdd.reset();
 
     amountTask = listItems.length;
     counter.textContent = amountTask;
-
-    localStorage.setItem('items', JSON.stringify(items));
   }
 }
 
@@ -100,7 +107,7 @@ const removeTask = (e) => {
       const removeIndex = e.target.parentElement.parentElement.dataset.key;
       e.target.parentElement.parentElement.remove();
       items.splice(removeIndex, 1);
-      amountTask--;
+      amountTask = listItems.length;
       counter.textContent = amountTask;
       localStorage.setItem('items', JSON.stringify(items));
     }
@@ -139,6 +146,7 @@ document.querySelector('.search-btn').addEventListener('click', () => {
   document.querySelector('.search-bar').classList.toggle('open');
 });
 formAdd.addEventListener('submit', addTask);
+// inputAdd.addEventListener('keyup', addTask);
 window.addEventListener('keyup', removeTask);
 window.addEventListener('keyup', (e) => {
   if (e.ctrlKey && e.keyCode === 89) {

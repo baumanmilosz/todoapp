@@ -10,7 +10,9 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
-let amountTask = null;
+console.log(items, toDoList);
+
+
 
 // DATE
 const today = new Date();
@@ -27,22 +29,9 @@ document.querySelector('.year').textContent = today.getFullYear();
 const weekDays = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
 document.querySelector('.week-day').textContent = weekDays[today.getDay()];
 
-
-// UPDATE LIST
-const updateList = function () {
-  toDoList.innerHTML = items.map((item, key) => {
-    return `<li class="list-item" data-key=${key}>
-      <div class="item-header">
-      <h2 class="title">${item.value}</h2>
-      <p class="add-date">${item.date}</p>
-    </div>
-    <button class="delete-btn">
-      <i class="far fa-trash-alt"></i>
-    </button></li>`
-  }).join('');
-  amountTask = items.length;
-}
-updateList();
+//  COUNTER
+let amountTask = 0;
+counter.textContent = amountTask;
 
 // ADD TASK
 const addTask = (e) => {
@@ -74,37 +63,51 @@ const addTask = (e) => {
     }
     items.push(item);
 
-    updateList();
-    formAdd.reset();
+    toDoList.innerHTML = items.map((item) => {
+      return `<li class="list-item">
+      <div class="item-header">
+      <h2 class="title">${item.value}</h2>
+      <p class="add-date">${item.date}</p>
+    </div>
+    <button class="delete-btn">
+      <i class="far fa-trash-alt"></i>
+    </button></li>`
+    }).join('');
+
+    localStorage.setItem('items', JSON.stringify(items));
+
+
+    // const toDoItem = document.createElement('li');
+    // toDoItem.classList.add('list-item');
+    // toDoItem.innerHTML = `
+    // <div class="item-header">
+    //   <h2 class="title">${inputAdd.value}</h2>
+    //   <p class="add-date">${hours}:${minutes}</p>
+    // </div>
+    // <button class="delete-btn">
+    //   <i class="far fa-trash-alt"></i>
+    // </button>`;
+
+    // toDoList.appendChild(toDoItem);
+    inputAdd.value = '';
 
     amountTask = listItems.length;
     counter.textContent = amountTask;
-
-    localStorage.setItem('items', JSON.stringify(items));
   }
 }
 
 // REMOVE TASK
 const removeTask = (e) => {
-  if (e.keyCode === 46 || e.target.nodeName === "I") {
-    localStorage.removeItem('items');
-    if (e.keyCode === 46) {
-      if (toDoList.childElementCount > 0) {
-        items.pop();
-        amountTask--;
-        counter.textContent = amountTask;
-        localStorage.setItem('items', JSON.stringify(items));
-      }
-
-    } else if (e.target.nodeName === "I") {
-      const removeIndex = e.target.parentElement.parentElement.dataset.key;
-      e.target.parentElement.parentElement.remove();
-      items.splice(removeIndex, 1);
+  if (e.keyCode === 46) {
+    if (toDoList.childElementCount > 0) {
+      toDoList.lastChild.remove();
       amountTask--;
       counter.textContent = amountTask;
-      localStorage.setItem('items', JSON.stringify(items));
     }
-    updateList();
+  } else if (e.target.nodeName === "I") {
+    e.target.parentElement.parentElement.remove();
+    amountTask = listItems.length;
+    counter.textContent = amountTask;
   }
 }
 
@@ -139,6 +142,7 @@ document.querySelector('.search-btn').addEventListener('click', () => {
   document.querySelector('.search-bar').classList.toggle('open');
 });
 formAdd.addEventListener('submit', addTask);
+// inputAdd.addEventListener('keyup', addTask);
 window.addEventListener('keyup', removeTask);
 window.addEventListener('keyup', (e) => {
   if (e.ctrlKey && e.keyCode === 89) {
