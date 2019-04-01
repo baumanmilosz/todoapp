@@ -14,6 +14,9 @@ const theme = JSON.parse(localStorage.getItem('themes'));
 const isNight = JSON.parse(localStorage.getItem('night'));
 let amountTask = null;
 
+document.querySelector('.wrapper').style.backgroundImage = theme;
+isNight ? toDoList.classList.toggle('night') : null;
+
 // DATE
 const today = new Date();
 if (today.getDate() < 10) {
@@ -44,9 +47,6 @@ const updateList = function () {
   )).join('');
   amountTask = items.length;
   counter.textContent = amountTask;
-
-  document.querySelector('.wrapper').style.backgroundImage = theme;
-  isNight && toDoList.classList.toggle('night');
 }
 updateList();
 
