@@ -10,6 +10,9 @@ const inputAdd = document.querySelector('.add-input');
 const wrapper = document.querySelector('.wrapper');
 const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
+const theme = JSON.parse(localStorage.getItem('themes'));
+const isNight = JSON.parse(localStorage.getItem('night'));
+console.log(theme);
 let amountTask = null;
 
 // DATE
@@ -30,8 +33,8 @@ document.querySelector('.week-day').textContent = weekDays[today.getDay()];
 
 // UPDATE LIST
 const updateList = function () {
-  toDoList.innerHTML = items.map((item, key) => {
-    return `<li class="list-item" data-key=${key}>
+  toDoList.innerHTML = items.map((item, key) => (
+    `<li class="list-item" data-key=${key}>
       <div class="item-header">
       <h2 class="title">${item.value}</h2>
       <p class="add-date">${item.date}</p>
@@ -39,9 +42,12 @@ const updateList = function () {
     <button class="delete-btn">
       <i class="far fa-trash-alt"></i>
     </button></li>`
-  }).join('');
+  )).join('');
   amountTask = items.length;
   counter.textContent = amountTask;
+
+  document.querySelector('.wrapper').style.backgroundImage = theme;
+  isNight && toDoList.classList.toggle('night');
 }
 updateList();
 
@@ -89,20 +95,17 @@ const addTask = (e) => {
 const removeTask = (e) => {
   if (e.keyCode === 46 || e.target.nodeName === "I") {
     localStorage.removeItem('items');
+    amountTask--;
+    counter.textContent = amountTask;
     if (e.keyCode === 46) {
       if (toDoList.childElementCount > 0) {
         items.pop();
-        amountTask--;
-        counter.textContent = amountTask;
         localStorage.setItem('items', JSON.stringify(items));
       }
-
     } else if (e.target.nodeName === "I") {
       const removeIndex = e.target.parentElement.parentElement.dataset.key;
       e.target.parentElement.parentElement.remove();
       items.splice(removeIndex, 1);
-      amountTask--;
-      counter.textContent = amountTask;
       localStorage.setItem('items', JSON.stringify(items));
     }
     updateList();
@@ -128,10 +131,24 @@ const changeMode = (e) => {
   const toDoList = document.querySelector('.to-do-list');
   toDoList.classList.toggle('night');
 
+  const themes = {
+    light: 'var(--light-bg)',
+    dark: 'var(--dark-bg)',
+    night: false,
+  }
+
   if (toDoList.classList.contains('night')) {
+    themes.night = true;
     document.querySelector('.wrapper').style.backgroundImage = 'var(--dark-bg)';
+    localStorage.removeItem('themes');
+    localStorage.setItem('themes', JSON.stringify(themes.dark));
+    localStorage.setItem('night', JSON.stringify(themes.night));
   } else {
+    themes.night = false
     document.querySelector('.wrapper').style.backgroundImage = 'var(--light-bg)';
+    localStorage.removeItem('themes');
+    localStorage.setItem('themes', JSON.stringify(themes.light));
+    localStorage.setItem('night', JSON.stringify(themes.night));
   }
 }
 
