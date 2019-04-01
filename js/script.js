@@ -12,7 +12,6 @@ const formAdd = document.querySelector('.add-form');
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const theme = JSON.parse(localStorage.getItem('themes'));
 const isNight = JSON.parse(localStorage.getItem('night'));
-console.log(theme);
 let amountTask = null;
 
 // DATE
